@@ -19,5 +19,19 @@ export default async function handler(request, response) {
     return;
   }
 
-  return;
+  if (request.method === "POST") {
+    const formData = request.body;
+    console.log("formData", formData);
+    await Comment.create(formData);
+    return response.status(201).json({ status: "Comment created." });
+  }
+
+  if (request.method === "DELETE") {
+    await Comment.findByIdAndDelete(id);
+    return response
+      .status(200)
+      .json({ status: "Comment successfully deleted." });
+  }
+
+  return response.status(405).json({ message: "Method not allowed" });
 }

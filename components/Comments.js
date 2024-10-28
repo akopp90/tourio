@@ -66,6 +66,7 @@ export default function Comments({ locationName }) {
     <Article>
       <FormContainer onSubmit={handleSubmitComment}>
         <Label htmlFor="name">Your Name</Label>
+        <Input hidden={true} name="placeId" value={id} />
         <Input type="text" name="name" placeholder="name" />
         <Label htmlFor="comment">Your Comment</Label>
         <Input type="text" name="comment" placeholder="comment here..." />
