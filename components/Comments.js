@@ -52,8 +52,8 @@ export default function Comments({ locationName }) {
     }
   }
 
-  async function handleDeleteComment(comment_id) {
-    const response = await fetch(`/api/comments/${id}`, {
+  async function handleDeleteComment(commentId) {
+    const response = await fetch(`/api/comments/${commentId}`, {
       method: "DELETE",
     });
 
