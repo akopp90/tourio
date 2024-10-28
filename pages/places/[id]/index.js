@@ -70,6 +70,7 @@ export default function DetailsPage() {
         Location on Google Maps
       </StyledLocationLink>
       <p>{place.description}</p>
+      <Comments locationName={place.name} />
       <ButtonContainer>
         <StyledLink href={`/places/${id}/edit`}>Edit</StyledLink>
         <StyledButton onClick={deletePlace} type="button" $variant="delete">

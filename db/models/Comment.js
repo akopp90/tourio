@@ -3,10 +3,9 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const commentSchema = new Schema({
-  id: { type: Number, required: true },
   name: { type: String, required: true },
   comment: { type: String, required: true },
-  placeId: { type: Number, required: true },
+  placeId: { type: String, required: true },
 });
 
 const Comment =

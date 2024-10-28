@@ -1,8 +1,23 @@
-import { comments } from "../../../../lib/db_comments.js";
+import dbConnect from "@/db/connect";
+import Comment from "@/db/models/Comment";
 
-export default function handler(request, response) {
+export default async function handler(request, response) {
+  await dbConnect();
   const { id } = request.query;
-  const foundComments = comments.filter(({ placeId }) => placeId === id);
-  response.status(200).json(foundComments);
+  console.log(id);
+
+  if (request.method === "GET") {
+    const foundComments = await Comment.find({ placeId: id });
+    console.log("comments", foundComments);
+
+    if (!foundComments) {
+      response.status(404).json({ status: "Not Found" });
+      return;
+    }
+
+    response.status(200).json(foundComments);
+    return;
+  }
+
   return;
 }

@@ -21,14 +21,14 @@ export default async function handler(request, response) {
     const placeData = request.body;
     await Place.findByIdAndUpdate(id, placeData);
 
-    response.status(200).json({ status: "Product updated." });
+    response.status(200).json({ status: "Place updated." });
 
     return;
   }
 
   if (request.method === "DELETE") {
     await Place.findByIdAndDelete(id);
-    response.status(200).json({ status: "Product deleted." });
+    response.status(200).json({ status: "Place deleted." });
     return;
   }
 
